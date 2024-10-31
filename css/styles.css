@@ -1,0 +1,119 @@
+:root {
+    --fonte-principal: 'Inter';
+    --titulo: #ffcc00; /* Amarelo abóbora */
+    --letras: #ffffff; /* Letras brancas para contraste */
+    --letras-animada: #ff6600; /* Laranja animado */
+    --fundo: #1a1a1a; /* Fundo preto muito escuro */
+    --fundo2: #333333; /* Cinza escuro */
+    --fundo-animado: url('https://tenor.com/pt-BR/view/yarasa-dolunay-gif-11737781'); /* URL do GIF de morcegos */
+    --borda: #666666; /* Cinza claro */
+    --borda-animada: #ff33cc; /* Rosa animado */
+    --card: #444444; /* Card cinza escuro */
+    --sombra: rgba(0, 0, 0, 0.7); /* Sombra escura */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--fundo2);
+    background-image: var(--fundo-animado);
+    background-size: cover; /* Para cobrir todo o fundo */
+    animation: backgroundAnimation 10s linear infinite; /* Adicionando animação */
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+header {
+    background: var(--fundo);
+    color: var(--titulo);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--sombra);
+}
+
+#logo {
+    width: 550px;
+    height: 300px;
+    display: flex;
+    margin-left: 29.5%;
+}
+
+#characterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/*Cards*/
+.character {
+    color: var(--letras);
+    background: var(--card);
+    border: 2px solid var(--borda);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    transition: transform 0.7s, color 1s, background-color 1s, border 0.3s;
+    box-shadow: 0 4px 10px var(--sombra);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de fantasma */
+.character::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 1s;
+    border-radius: 20px;
+}
+
+.character:hover {
+    transform: scale(1.1);
+    color: var(--letras-animada);
+    background-color: var(--fundo-animado);
+    border-color: var(--borda-animada);
+}
+
+.character:hover::after {
+    opacity: 1;
+}
+
+/*Rodapé*/
+footer#rodape {
+    color: var(--titulo);
+    margin-top: auto;
+    clear: both;
+    border-top: 1px solid var(--borda);
+    padding: 10px 0;
+    box-shadow: 0 -4px 20px var(--sombra);
+}
+
+footer#rodape p {
+    text-align: center;
+}
+
+footer#rodape a {
+    text-decoration: none;
+    color: var(--titulo);
+    transition: color 0.3s;
+}
+
+footer#rodape a:hover {
+    color: blue;
+    text-decoration: underline;
+}
